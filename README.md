@@ -9,6 +9,9 @@ Universidad EAFIT
 # Programas
 ## Wordcount
 
+```sh
 $ python wordcount-local.py ../datasets/gutenberg-small/*.txt
 $ python wordcount-mr.py -r local ../datasets/gutenberg-small/*.txt
+```
+
 
