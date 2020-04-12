@@ -4,4 +4,4 @@ Universidad EAFIT
 
 # EMR
 ## Scripts
-[Scripts EMR](../EMR/)
+[Scripts EMR](https://github.com/alejocano22/TETbigdata/tree/master/EMR)
