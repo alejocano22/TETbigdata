@@ -34,7 +34,7 @@ $ python stocks-risenstable-mr.py -r local < input file >
 
 3. DIA NEGRO: Saque el día en el que la mayor cantidad de acciones tienen el menor valor de acción (DESPLOME), suponga una inflación independiente del tiempo.<br/>
 ```sh
-$ python blackday-mr.py -r local < input file >
+$ python stocks-blackday-mr.py -r local < input file >
 ```
 
 
