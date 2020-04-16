@@ -28,7 +28,7 @@ $ python stocks-maxmin-mr.py -r local < input file >
 ```
 Output:
 ```sh
-    compañía, [[min, fecha_min], [max, fecha_max]]
+compañía, [[min, fecha_min], [max, fecha_max]]
 ```
 Donde `compañia` es el nombre de la compañia, `min` es el precio mínimo que alcanzo la acción en la fecha `fecha_min` y `max` es el precio máximo que alcanzo la acción en la fecha `fecha_max`.
 
@@ -38,9 +38,10 @@ $ python stocks-risenstable-mr.py -r local < input file >
 ```
 Output:
 ```sh
-    compañía, mensaje
-Donde `compañia` es el nombre de la compañia y `mensaje` es "Raise or stable all time." Que indica que el precio de la acción ha subido o se ha mantenido estable en el historico de datos.
+compañía, mensaje
 ```
+Donde `compañia` es el nombre de la compañia y `mensaje` es "Raise or stable all time." Que indica que el precio de la acción ha subido o se ha mantenido estable en el historico de datos.
+
 
 3. DIA NEGRO: Saque el día en el que la mayor cantidad de acciones tienen el menor valor de acción (DESPLOME), suponga una inflación independiente del tiempo.<br/>
 ```sh
@@ -48,6 +49,6 @@ $ python stocks-blackday-mr.py -r local < input file >
 ```
 Output:
 ```sh
-    [mensaje, conteo], fecha
+[mensaje, conteo], fecha
 ```
 Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que registrarón la acción más baja en `fecha`.
