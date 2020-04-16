@@ -27,7 +27,9 @@ $ python wordcount-mr.py -r local < input file >
 $ python stocks-maxmin-mr.py -r local < input file >
 ```
 Output:
-    [ compañía [min, fecha_min], [max, fecha_max] ]
+```sh
+    compañía, [[min, fecha_min], [max, fecha_max]]
+```
 Donde `compañia` es el nombre de la compañia, `min` es el precio mínimo que alcanzo la acción en la fecha `fecha_min` y `max` es el precio máximo que alcanzo la acción en la fecha `fecha_max`.
 
 2. Listado de acciones que siempre han subido o se mantienen estables.<br/>
@@ -35,12 +37,17 @@ Donde `compañia` es el nombre de la compañia, `min` es el precio mínimo que a
 $ python stocks-risenstable-mr.py -r local < input file >
 ```
 Output:
-    [ compañía, mensaje ]
+```sh
+    compañía, mensaje
 Donde `compañia` es el nombre de la compañia y `mensaje` es "Raise or stable all time." Que indica que el precio de la acción ha subido o se ha mantenido estable en el historico de datos.
-   
+```
+
 3. DIA NEGRO: Saque el día en el que la mayor cantidad de acciones tienen el menor valor de acción (DESPLOME), suponga una inflación independiente del tiempo.<br/>
 ```sh
 $ python stocks-blackday-mr.py -r local < input file >
 ```
-    [ [ mensaje, conteo], fecha ]
+Output:
+```sh
+    [mensaje, conteo], fecha
+```
 Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que registrarón la acción más baja en `fecha`.
