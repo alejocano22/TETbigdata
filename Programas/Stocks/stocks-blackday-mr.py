@@ -26,7 +26,7 @@ class BlackDay(MRJob):
         for i in range(len(data)):
             if int(data[i][1]) > int(max_value[1]):
                 max_value = data[i]
-        yield "Black Day", max_value[0]
+        yield ("Black Day", max_value[1]), max_value[0]
 
     def steps(self):
         return [
