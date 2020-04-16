@@ -13,7 +13,7 @@ Universidad EAFIT
 #### Local
 ```sh
 $ python wordcount-local.py < input >
-$ python wordcount-mr.py -r local < input > -o < output >
+$ python wordcount-mr.py -r local < input > [ -o < output > ]
 ```
 
 #### EMR
@@ -38,7 +38,7 @@ python wordcount-mr.py -c mrjob.conf -r emr s3://acanomdatasets/datasets/gutenbe
 Por acción, dia-menor-valor, día-mayor-valor  <br/>
 #### Local
 ```sh
-$ python stocks-maxmin-mr.py -r local < input file >
+$ python stocks-maxmin-mr.py -r local < input > [ -o < output > ]
 ```
 #### EMR
 Se deben actualizar las credenciales de aws en el archivo `mrjob.conf`   <br/>
@@ -61,7 +61,7 @@ Donde `compañia` es el nombre de la compañia, `min` es el precio mínimo que a
 Listado de acciones que siempre han subido o se mantienen estables.<br/>
 #### Local
 ```sh
-$ python stocks-risenstable-mr.py -r local < input file >
+$ python stocks-risenstable-mr.py -r local < input > [ -o < output > ]
 ```
 #### EMR
 Se deben actualizar las credenciales de aws en el archivo `mrjob.conf`    <br/>
@@ -84,7 +84,7 @@ Donde `compañia` es el nombre de la compañia y `mensaje` es "Raise or stable a
 DIA NEGRO: Saque el día en el que la mayor cantidad de acciones tienen el menor valor de acción (DESPLOME), suponga una inflación independiente del tiempo.<br/>
 #### Local
 ```sh
-$ python stocks-blackday-mr.py -r local < input file >
+$ python stocks-blackday-mr.py -r local < input > [ -o < output > ]
 ```
 #### EMR
 Se deben actualizar las credenciales de aws en el archivo `mrjob.conf`    <br/>
