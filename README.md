@@ -10,13 +10,13 @@ Universidad EAFIT
 ## Wordcount
 ### Ejecutables:
 [Códigos](https://github.com/alejocano22/TETbigdata/tree/master/Programas/Wordcount) <br/>
-Local: <br/>
+#### Local: <br/>
 ```sh
 $ python wordcount-local.py < input >
 $ python wordcount-mr.py -r local < input > -o < output >
 ```
 
-EMR:  <br/>
+###### EMR:  <br/>
 Se deben actualizar las credenciales de aws en el archivo `mrjob.conf`   <br/>
 Datos de entrada en s3:
 ```sh
