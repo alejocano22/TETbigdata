@@ -30,7 +30,7 @@ Output:
 ```sh
 compañía, [[min, fecha_min], [max, fecha_max]]
 ```
-Donde `compañia` es el nombre de la compañia, `min` es el precio mínimo que alcanzo la acción en la fecha `fecha_min` y `max` es el precio máximo que alcanzo la acción en la fecha `fecha_max`.
+Donde `compañia` es el nombre de la compañia, `min` es el precio mínimo que alcanzo la acción en la fecha `fecha_min` y `max` es el precio máximo que alcanzo la acción en la fecha `fecha_max`. <br/>
 
 2. Listado de acciones que siempre han subido o se mantienen estables.<br/>
 ```sh
@@ -40,7 +40,7 @@ Output:
 ```sh
 compañía, mensaje
 ```
-Donde `compañia` es el nombre de la compañia y `mensaje` es "Raise or stable all time." Que indica que el precio de la acción ha subido o se ha mantenido estable en el historico de datos.
+Donde `compañia` es el nombre de la compañia y `mensaje` es "Raise or stable all time." Que indica que el precio de la acción ha subido o se ha mantenido estable en el historico de datos. <br/>
 
 
 3. DIA NEGRO: Saque el día en el que la mayor cantidad de acciones tienen el menor valor de acción (DESPLOME), suponga una inflación independiente del tiempo.<br/>
@@ -51,4 +51,4 @@ Output:
 ```sh
 [mensaje, conteo], fecha
 ```
-Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que registrarón la acción más baja en `fecha`.
+Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que registrarón la acción más baja en `fecha`. <br/>
