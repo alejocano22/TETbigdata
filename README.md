@@ -8,15 +8,15 @@ Universidad EAFIT
 
 # Programas
 ## Wordcount
-### Ejecutables:
+### Ejecutables
 [Códigos](https://github.com/alejocano22/TETbigdata/tree/master/Programas/Wordcount) <br/>
-#### Local: <br/>
+#### Local
 ```sh
 $ python wordcount-local.py < input >
 $ python wordcount-mr.py -r local < input > -o < output >
 ```
 
-###### EMR:  <br/>
+#### EMR
 Se deben actualizar las credenciales de aws en el archivo `mrjob.conf`   <br/>
 Datos de entrada en s3:
 ```sh
@@ -30,17 +30,17 @@ python wordcount-mr.py -c mrjob.conf -r emr s3://acanomdatasets/datasets/gutenbe
 (2) Se tiene un conjunto de acciones de la bolsa, en la cual se reporta a diario el valor promedio por acción <br/>
 [Estructura de datos](https://github.com/alejocano22/TETbigdata/blob/master/Datasets/dataempresas.csv) <br/>
 
-### Ejecutables:
+### Ejecutables
 
 [Códigos](https://github.com/alejocano22/TETbigdata/tree/master/Programas/Stocks)
 
 ### 1. Día de menor valor - Día de mayor valor
 Por acción, dia-menor-valor, día-mayor-valor  <br/>
-Local: <br/>
+#### Local
 ```sh
 $ python stocks-maxmin-mr.py -r local < input file >
 ```
-EMR:  <br/>
+#### EMR
 Se deben actualizar las credenciales de aws en el archivo `mrjob.conf`   <br/>
 
 Datos de entrada en s3: 
@@ -51,7 +51,7 @@ Datos de entrada y de salida en s3:
 ```sh
 python stocks-maxmin-mr.py -c mrjob.conf -r emr s3://acanomdatasets/datasets/otros/dataempresas2.txt -o s3://acanomoutputs/stocks-maxmin-outputs/
 ```
-Output: 
+#### Output 
 ```sh
 compañía, [[min, fecha_min], [max, fecha_max]]
 ```
@@ -59,11 +59,11 @@ Donde `compañia` es el nombre de la compañia, `min` es el precio mínimo que a
 
 ### 2. Acciones que siempre han subido o se mantienen estables
 Listado de acciones que siempre han subido o se mantienen estables.<br/>
-Local: <br/>
+#### Local
 ```sh
 $ python stocks-risenstable-mr.py -r local < input file >
 ```
-EMR: <br/>
+#### EMR
 Se deben actualizar las credenciales de aws en el archivo `mrjob.conf`    <br/>
 
 Datos de entrada en s3:
@@ -74,7 +74,7 @@ Datos de entrada y de salida en s3:
 ```sh
 python stocks-risenstable-mr.py -c mrjob.conf -r emr s3://acanomdatasets/datasets/otros/dataempresas2.txt -o s3://acanomoutputs/stocks-risenstable-outputs/
 ```
-Output:
+#### Output
 ```sh
 compañía, mensaje
 ```
@@ -82,11 +82,11 @@ Donde `compañia` es el nombre de la compañia y `mensaje` es "Raise or stable a
 
 ### 3. Día negro
 DIA NEGRO: Saque el día en el que la mayor cantidad de acciones tienen el menor valor de acción (DESPLOME), suponga una inflación independiente del tiempo.<br/>
-Local: <br/>
+#### Local
 ```sh
 $ python stocks-blackday-mr.py -r local < input file >
 ```
-EMR: <br/>
+#### EMR
 Se deben actualizar las credenciales de aws en el archivo `mrjob.conf`    <br/>
 
 Datos de entrada en s3:
@@ -98,7 +98,7 @@ Datos de entrada y de salida en s3:
 python stocks-blackday-mr.py -c mrjob.conf -r emr s3://acanomdatasets/datasets/otros/dataempresas2.txt -o s3://acanomoutputs/stocks-blackday-outputs/
 ```
 
-Output:
+#### Output
 ```sh
 [mensaje, conteo], fecha
 ```
