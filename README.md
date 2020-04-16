@@ -10,8 +10,8 @@ Universidad EAFIT
 ## Wordcount
 
 ```sh
-$ python wordcount-local.py < input file >
-$ python wordcount-mr.py -r local < input file >
+$ python wordcount-local.py < input >
+$ python wordcount-mr.py -r local < input > -o < output >
 ```
 
 ## Stocks
