@@ -2,6 +2,12 @@
 Alejandro Cano Múnera <br/>
 Universidad EAFIT 
 
+# DCA
+## Conectar
+```sh
+$ ssh acanom@192.168.10.116 
+```
+
 # EMR
 ## Scripts
 [Scripts EMR](https://github.com/alejocano22/TETbigdata/tree/master/EMR)
