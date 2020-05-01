@@ -188,6 +188,7 @@ Nota: Clonar el repositorio:
 ```sh
 hdfs dfs -put TETbigdata/Datasets/retail_logs/access.log /user/<username>/datasets/retail_logs/
 ```
+Crear tablas ETL - Intermedia
 ```sh
 USE <username>;
 CREATE EXTERNAL TABLE tmp_access_logs (
@@ -206,7 +207,7 @@ CREATE EXTERNAL TABLE tmp_access_logs (
         'output.format.string' = "%1$$s %2$$s %3$$s %4$$s %5$$s %6$$s %7$$s %8$$s %9$$s")
     LOCATION '/user/<username>/datasets/retail_logs/';
 ```
-Crear directorio para tabla externa con ETL:
+Crear directorio para tabla externa con ETL - Final:
 ```sh
 hdfs dfs -mkdir /user/<usernme>/warehouse/access_logs_etl
 ```
