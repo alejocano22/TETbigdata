@@ -3,17 +3,17 @@ Alejandro Cano Múnera <br/>
 Universidad EAFIT 
 
 # DCA
-## Conectar
+### Conectar
 ```sh
 $ ssh acanom@192.168.10.116 
 ```
 
-## Datasets
+### Datasets
 ```sh
 $ hdfs dfs -copyFromLocal bigdata/datasets/* /user/acanom/datasets
 ```
 # EMR
-## Scripts
+### Scripts
 [Scripts EMR](https://github.com/alejocano22/TETbigdata/tree/master/EMR)
 
 # Programas
