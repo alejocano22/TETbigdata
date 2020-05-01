@@ -144,3 +144,139 @@ Importar datos via sqoop por HUE:
 ```sh
 import-all-tables --connect jdbc:mysql://<database>.rds.amazonaws.com:3306/retail_db --username=retail_dba --password=retail_dba --hive-database retail_db --hive-overwrite --hive-import --warehouse-dir=/tmp/retail_dbtmp -m 1 --mysql-delimiters
 ```
+
+### Preguntas de negocio
+1. ¿Son los productos más visitados en el sitio web los más vendidos? <br/>
+2. ¿Son los productos más visitados los que hacen parte de los de mayor rentabilidad?
+
+#### Categorias más populares de productos
+```sh
+SELECT c.category_name, count(order_item_quantity) as count
+FROM order_items oi
+inner join products p on oi.order_item_product_id = p.product_id
+inner join categories c on c.category_id = p.product_category_id
+group by c.category_name
+order by count desc
+limit 10
+```
+Insert image
+#### Top 10 de productos que generan más ganancias
+```sh
+SELECT p.product_id, p.product_name, r.revenue
+FROM products p inner join
+(select oi.order_item_product_id, sum(cast(oi.order_item_subtotal as float)) as revenue
+from order_items oi inner join orders o
+on oi.order_item_order_id = o.order_id
+where o.order_status <> 'CANCELED'
+and o.order_status <> 'SUSPECTED_FRAUD'
+group by order_item_product_id) r
+on p.product_id = r.order_item_product_id
+order by r.revenue desc
+limit 10
+```
+Insert image
+### LOGS
+Subir los logs al hdfs:
+```sh
+hdfs dfs -mkdir /user/<username>/datasets/retail_logs/
+```
+Nota: Clonar el repositorio:
+```sh
+hdfs dfs -put TETbigdata/Datasets/retail_logs/access.log /user/<username>/datasets/retail_logs/
+```
+```sh
+USE <username>;
+CREATE EXTERNAL TABLE tmp_access_logs (
+        ip STRING,
+        fecha STRING,
+        method STRING,
+        url STRING,
+        http_version STRING,
+        code1 STRING,
+        code2 STRING,
+        dash STRING,
+        user_agent STRING)
+    ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
+    WITH SERDEPROPERTIES (
+        'input.regex' = '([^ ]*) - - \\[([^\\]]*)\\] "([^\ ]*) ([^\ ]*) ([^\ ]*)" (\\d*) (\\d*) "([^"]*)" "([^"]*)"',
+        'output.format.string' = "%1$$s %2$$s %3$$s %4$$s %5$$s %6$$s %7$$s %8$$s %9$$s")
+    LOCATION '/user/<username>/datasets/retail_logs/';
+```
+Crear directorio para tabla externa con ETL:
+```sh
+hdfs dfs -mkdir /user/<usernme>/warehouse/access_logs_etl
+```
+```sh
+CREATE EXTERNAL TABLE etl_access_logs (
+        ip STRING,
+        fecha STRING,
+        method STRING,
+        url STRING,
+        http_version STRING,
+        code1 STRING,
+        code2 STRING,
+        dash STRING,
+        user_agent STRING)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    LOCATION '/user/<username>/warehouse/access_logs_etl/';
+```
+Procesar ETL:
+```sh
+ADD JAR /usr/lib/hive/lib/hive-contrib.jar;
+```
+```sh
+INSERT OVERWRITE TABLE etl_access_logs SELECT * FROM tmp_access_logs;
+```
+### Productos más visitados
+```sh
+SELECT count(*) as contador,url FROM etl_access_logs
+WHERE url LIKE '%\/product\/%'
+GROUP BY url ORDER BY contador DESC LIMIT 10;
+```
+
+### Guardar outputs en S3
+Categorías más populares: 
+```sh
+CREATE EXTERNAL TABLE popular_categories (categorie_name STRING, count Bigint) 
+LOCATION 's3://<bucket>/popular_categories/'
+```
+```sh
+INSERT INTO popular_categories
+SELECT c.category_name, count(order_item_quantity) as count
+FROM order_items oi
+inner join products p on oi.order_item_product_id = p.product_id
+inner join categories c on c.category_id = p.product_category_id
+group by c.category_name
+order by count desc
+limit 10
+```
+Productos que genran más ganancia:
+```sh
+CREATE EXTERNAL TABLE more_profit_products (product_id INT, product_name STRING, revenue DOUBLE) 
+LOCATION 's3://<bucket>/more_profit_products/'
+```
+```sh
+INSERT INTO more_profit_products
+SELECT p.product_id, p.product_name, r.revenue
+FROM products p inner join
+(select oi.order_item_product_id, sum(cast(oi.order_item_subtotal as float)) as revenue
+from order_items oi inner join orders o
+on oi.order_item_order_id = o.order_id
+where o.order_status <> 'CANCELED'
+and o.order_status <> 'SUSPECTED_FRAUD'
+group by order_item_product_id) r
+on p.product_id = r.order_item_product_id
+order by r.revenue desc
+limit 10
+```
+Productos más visitados:
+```sh
+CREATE EXTERNAL TABLE most_visited (count Bigint, url STRING) 
+LOCATION 's3://<bucket>/most_visited/'
+```
+```sh
+INSERT INTO most_visited
+SELECT count(*) as contador,url FROM etl_access_logs
+WHERE url LIKE '%\/product\/%'
+GROUP BY url ORDER BY contador DESC LIMIT 10;
+```
