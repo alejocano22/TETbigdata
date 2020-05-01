@@ -113,3 +113,6 @@ python stocks-blackday-mr.py -c mrjob.conf -r emr s3://acanomdatasets/datasets/o
 [mensaje, conteo], fecha
 ```
 Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que registrarón la acción más baja en `fecha`. <br/>
+
+# HIVE caso de estudio Retail
+[settings-emr](https://github.com/alejocano22/TETbigdata/blob/master/EMR/settings-emr.txt) <br/>
