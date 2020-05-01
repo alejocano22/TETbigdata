@@ -299,7 +299,7 @@ GROUP BY url ORDER BY contador DESC LIMIT 10;
 ```
 
 Tabla de resultados
-![Tabla de resultados](https://github.com/alejocano22/TETbigdata/blob/master/Imagenes/Productos%20que%20generan%20ganancias%20-%20Tabla.png)
+![Tabla de resultados](https://github.com/alejocano22/TETbigdata/blob/master/Imagenes/Productos%20m%C3%A1s%20visitados%20(URL)%20-Tabla.png)
 
-Gráfica (X: Nombre de la categoría, Y: Contador)
-![Gráfica (X: Id Producto, Y: Ingresos)](https://github.com/alejocano22/TETbigdata/blob/master/Imagenes/Productos%20que%20generan%20ganancias%20-%20Gr%C3%A1fica.png)
+Gráfica - Distribución (X: Contador)
+![Gráfica (X: Id Producto, Y: Ingresos)](https://github.com/alejocano22/TETbigdata/blob/master/Imagenes/Productos%20m%C3%A1s%20visitados%20(URL)%20-%20Gr%C3%A1fica.png)
