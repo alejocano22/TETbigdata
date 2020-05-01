@@ -207,10 +207,11 @@ CREATE EXTERNAL TABLE tmp_access_logs (
         'output.format.string' = "%1$$s %2$$s %3$$s %4$$s %5$$s %6$$s %7$$s %8$$s %9$$s")
     LOCATION '/user/<username>/datasets/retail_logs/';
 ```
-Crear directorio para tabla externa con ETL - Final:
+Crear directorio para tabla externa con ETL:
 ```sh
 hdfs dfs -mkdir /user/<usernme>/warehouse/access_logs_etl
 ```
+Crear tablas ETL - Final
 ```sh
 CREATE EXTERNAL TABLE etl_access_logs (
         ip STRING,
