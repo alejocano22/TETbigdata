@@ -163,7 +163,9 @@ group by c.category_name
 order by count desc
 limit 10
 ```
-Insert image
+![Tabla de resultados](https://github.com/alejocano22/TETbigdata/blob/master/Imagenes/Categor%C3%ADas%20m%C3%A1s%20populares%20de%20productos%20-%20Tabla.png)
+![Gráfica (X: Nombre de la categoría, Y: Contador)](https://github.com/alejocano22/TETbigdata/blob/master/Imagenes/Categor%C3%ADas%20m%C3%A1s%20populares%20de%20productos%20-%20Gr%C3%A1fica.png)
+
 #### Top 10 de productos que generan más ganancias
 ```sh
 SELECT p.product_id, p.product_name, r.revenue
