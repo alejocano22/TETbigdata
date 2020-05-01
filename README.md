@@ -135,6 +135,12 @@ Base de datos:
 create database retail_db;
 use retail_db;
 ```
+Importar datos via sqoop por Terminal:
 ```sh
-..
+sqoop import-all-tables --connect jdbc:mysql://<database>.rds.amazonaws.com:3306/retail_db --username=retail_dba --password=retail_dba --hive-database retail_db --hive-overwrite --hive-import --warehouse-dir=/tmp/retail_dbtmp -m 1 --mysql-delimiters
+```
+
+Importar datos via sqoop por HUE:
+```sh
+import-all-tables --connect jdbc:mysql://<database>.rds.amazonaws.com:3306/retail_db --username=retail_dba --password=retail_dba --hive-database retail_db --hive-overwrite --hive-import --warehouse-dir=/tmp/retail_dbtmp -m 1 --mysql-delimiters
 ```
