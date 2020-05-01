@@ -115,6 +115,8 @@ python stocks-blackday-mr.py -c mrjob.conf -r emr s3://acanomdatasets/datasets/o
 Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que registrarón la acción más baja en `fecha`. <br/>
 
 # HIVE caso de estudio Retail
+Es una tienda de venta de artículos deportivos, que tiene tiendas físicas/presenciales, pero que también tiene sitio de ventas por web. <br/>
+Ej: Nike, Adidas, Sportline, Foot Locker, etc. <br/>
 [settings-emr](https://github.com/alejocano22/TETbigdata/blob/master/EMR/settings-emr.txt) <br/>
 [sql-scripts](https://github.com/alejocano22/TETbigdata/blob/master/rdbms) <br/>
 
