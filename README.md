@@ -118,7 +118,7 @@ Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que reg
 [settings-emr](https://github.com/alejocano22/TETbigdata/blob/master/EMR/settings-emr.txt) <br/>
 [sql-scripts](https://github.com/alejocano22/TETbigdata/blob/master/rdbms) <br/>
 
-### Base de Datos
+### Base de Datos RDS
 ```sh
 CREATE DATABASE retail_db;
 USE retail_db;
@@ -128,4 +128,13 @@ GRANT ALL PRIVILEGES ON retail_db.* TO 'retail_dba'@'%';
 Correr script de datos:
 ```sh
 source TETbigdata/rdbms/retail_db-data.sql
-``` <br/>
+```
+### Hive - Sqoop
+Base de datos: 
+```sh
+create database retail_db;
+use retail_db;
+```
+```sh
+..
+```
