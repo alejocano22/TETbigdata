@@ -117,9 +117,14 @@ Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que reg
 # HIVE caso de estudio Retail
 Es una tienda de venta de artículos deportivos, que tiene tiendas físicas/presenciales, pero que también tiene sitio de ventas por web. <br/>
 Ej: Nike, Adidas, Sportline, Foot Locker, etc. <br/>
+
 ### Scripts
 [settings-emr](https://github.com/alejocano22/TETbigdata/blob/master/EMR/settings-emr.txt) <br/>
 [sql-scripts](https://github.com/alejocano22/TETbigdata/blob/master/rdbms) <br/>
+
+### Preguntas de negocio
+1. ¿Son los productos más visitados en el sitio web los más vendidos? <br/>
+2. ¿Son los productos más visitados los que hacen parte de los de mayor rentabilidad?
 
 ### Base de Datos RDS
 ```sh
@@ -147,10 +152,6 @@ Importar datos via sqoop por HUE:
 ```sh
 import-all-tables --connect jdbc:mysql://<database>.rds.amazonaws.com:3306/retail_db --username=retail_dba --password=retail_dba --hive-database retail_db --hive-overwrite --hive-import --warehouse-dir=/tmp/retail_dbtmp -m 1 --mysql-delimiters
 ```
-
-### Preguntas de negocio
-1. ¿Son los productos más visitados en el sitio web los más vendidos? <br/>
-2. ¿Son los productos más visitados los que hacen parte de los de mayor rentabilidad?
 
 #### Categorias más populares de productos
 ```sh
