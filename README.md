@@ -116,3 +116,16 @@ Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que reg
 
 # HIVE caso de estudio Retail
 [settings-emr](https://github.com/alejocano22/TETbigdata/blob/master/EMR/settings-emr.txt) <br/>
+[sql-scripts](https://github.com/alejocano22/TETbigdata/blob/master/rdbms) <br/>
+
+### Base de Datos
+```sh
+CREATE DATABASE retail_db;
+USE retail_db;
+CREATE USER 'retail_dba'@'%' IDENTIFIED BY 'retail_dba';
+GRANT ALL PRIVILEGES ON retail_db.* TO 'retail_dba'@'%';
+``` <br/>
+Correr script de datos:
+```sh
+source TETbigdata/rdbms/retail_db-data.sql
+``` <br/>
