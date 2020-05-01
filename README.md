@@ -118,13 +118,13 @@ Donde `mensaje` es "Black Friday" y `conteo` es el número de compañias que reg
 Es una tienda de venta de artículos deportivos, que tiene tiendas físicas/presenciales, pero que también tiene sitio de ventas por web. <br/>
 Ej: Nike, Adidas, Sportline, Foot Locker, etc. <br/>
 
-### Scripts
-[settings-emr](https://github.com/alejocano22/TETbigdata/blob/master/EMR/settings-emr.txt) <br/>
-[sql-scripts](https://github.com/alejocano22/TETbigdata/blob/master/rdbms) <br/>
-
 ### Preguntas de negocio
 1. ¿Son los productos más visitados en el sitio web los más vendidos? <br/>
 2. ¿Son los productos más visitados los que hacen parte de los de mayor rentabilidad?
+
+### Scripts
+[settings-emr](https://github.com/alejocano22/TETbigdata/blob/master/EMR/settings-emr.txt) <br/>
+[sql-scripts](https://github.com/alejocano22/TETbigdata/blob/master/rdbms) <br/>
 
 ### Base de Datos RDS
 ```sh
