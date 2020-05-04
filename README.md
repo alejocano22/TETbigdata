@@ -312,7 +312,8 @@ spark-submit --master yarn --deploy-mode cluster wordcount-pyspark.py
 [Código](https://github.com/alejocano22/TETbigdata/blob/master/Programas/Spark/wordcount-pyspark.py)
 
 ## COVID
-[Notebook](https://github.com/alejocano22/TETbigdata/blob/master/Programas/Spark/Notebooks/Jupyter/outputs/COVID_Spark_Lab.ipynb)<br/>
+[Notebook](https://github.com/alejocano22/TETbigdata/blob/master/Programas/Spark/Notebooks/Jupyter/COVID_Spark_Lab.ipynb)<br/>
+[outputs](https://github.com/alejocano22/TETbigdata/blob/master/Programas/Spark/Notebooks/Jupyter/outputs/COVID_Spark_Lab.ipynb)<br/>
 [Data](https://github.com/alejocano22/TETbigdata/tree/master/Programas/Spark/Notebooks/Jupyter/covid-data)<br/>
 Actualización: Mayo 3 del 2020
 
