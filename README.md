@@ -305,7 +305,7 @@ Gráfica - Distribución (X: Contador)
 ![Gráfica3](https://github.com/alejocano22/TETbigdata/blob/master/Imagenes/Productos%20m%C3%A1s%20visitados%20(URL)%20-%20Gr%C3%A1fica.png)
 
 # SPARK
-### Wordcount
+### Wordcount pyspark
 ```sh
 spark-submit --master yarn --deploy-mode cluster wordcount-pyspark.py 
 ```
@@ -322,3 +322,40 @@ Actualización: Mayo 3 del 2020
 
 #### Zeppeline
 [Zeppeline](https://github.com/alejocano22/TETbigdata/tree/master/Programas/Spark/Notebooks/Zeppeline)
+##### Wordcount
+```sh
+%spark.pyspark
+files = sc.textFile("s3://acanomdatasets/datasets/gutenberg-small/*.txt")
+wc = files.flatMap(lambda line: line.split(" ")).map(lambda word: (word, 1)).reduceByKey(lambda a, b: a + b)
+wc.coalesce(1).saveAsTextFile("s3://acanomoutputs/wordcount-spark/output4")
+```
+##### Wordcount en spark.sql
+```sh
+# Crear base de datos
+%spark.sql    
+CREATE DATABASE wordcountdb
+
+# Mostrar bases de datos
+%spark.sql
+SHOW DATABASES
+
+# Usar base de datos
+%spark.sql
+USE wordcountdb
+
+# Crear tabla externa
+%spark.sql
+CREATE EXTERNAL TABLE gutenberg_small (line STRING) stored as textfile location 's3://acanomdatasets/datasets/gutenberg-small/*.txt'
+
+# Mostrar tablas
+%spark.sql
+SHOW tables
+
+# Wordcount ordenado por palabra
+%spark.sql
+SELECT word, count(1) AS count FROM (SELECT explode(split(line,' ')) AS word FROM gutenberg_small) w GROUP BY word ORDER BY word
+
+# Wordcount ordenado por contador de mayor a menor
+%spark.sql
+SELECT word, count(1) AS count FROM (SELECT explode(split(line,' ')) AS word FROM gutenberg_small) w GROUP BY word ORDER BY count DESC
+```
