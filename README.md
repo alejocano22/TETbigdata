@@ -306,6 +306,9 @@ Gráfica - Distribución (X: Contador)
 
 # SPARK
 ### Wordcount
+```sh
+spark-submit --master yarn --deploy-mode cluster wordcount-pyspark.py 
+```
 [Código](https://github.com/alejocano22/TETbigdata/blob/master/Programas/Spark/wordcount-pyspark.py)
 
 ## COVID
