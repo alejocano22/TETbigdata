@@ -304,6 +304,8 @@ Tabla de resultados
 Gráfica - Distribución (X: Contador)
 ![Gráfica3](https://github.com/alejocano22/TETbigdata/blob/master/Imagenes/Productos%20m%C3%A1s%20visitados%20(URL)%20-%20Gr%C3%A1fica.png)
 
+Se observa una correlación entre los productos más visitados, los productos más vendidos y los que generan más ganancias.
+
 # SPARK
 ### Wordcount pyspark
 ```sh
